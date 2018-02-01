@@ -20,7 +20,7 @@
 	if (!$accessToken->isLongLived())
 		$accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
 
-	$response = $FB->get("/me?fields=id, first_name, last_name, email, picture.type(large)", $accessToken);
+	$response = $FB->get("/me?fields=id, first_name, last_name, email, picture.type(large),accounts{access_token,about,app_id,fan_count,name}", $accessToken);
 	$userData = $response->getGraphNode()->asArray();
 	$_SESSION['userData'] = $userData;
 	$_SESSION['access_token'] = (string) $accessToken;

@@ -7,7 +7,7 @@
 	}
 
 	$redirectURL = "http://localhost/facebooklogin/fb-callback.php";
-	$permissions = ['email'];
+	$permissions = ['manage_pages','email'];
 	$loginURL = $helper->getLoginUrl($redirectURL, $permissions);
 ?>
 <!doctype html>
@@ -25,11 +25,7 @@
 	<div class="container" style="margin-top: 100px">
 		<div class="row justify-content-center">
 			<div class="col-md-6 col-md-offset-3" align="center">
-				<img src="images/logo.png"><br><br>
 				<form>
-					<input name="email" placeholder="Email" class="form-control"><br>
-					<input name="password" type="password" placeholder="Password" class="form-control"><br>
-					<input type="submit" value="Log In" class="btn btn-primary">
 					<input type="button" onClick="window.location = '<?php echo $loginURL ?>';" value="Log In With Facebook" class="btn btn-primary">
 				</form>
 			</div>
